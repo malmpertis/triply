@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-triply-dev-25928-authRole",
+            "UnauthRoleArn": "arn:aws:iam::037253559530:role/amplify-triply-dev-25928-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::037253559530:role/amplify-triply-dev-25928-authRole",
+            "Region": "eu-west-2",
+            "DeploymentBucketName": "amplify-triply-dev-25928-deployment",
+            "UnauthRoleName": "amplify-triply-dev-25928-unauthRole",
+            "StackName": "amplify-triply-dev-25928",
+            "StackId": "arn:aws:cloudformation:eu-west-2:037253559530:stack/amplify-triply-dev-25928/4b720970-4ec5-11ea-8eaa-029db6d88004",
+            "AmplifyAppId": "d11s1f8t84gcmz"
+        },
+        "categories": {
+            "auth": {
+                "triplyb289de00": {}
+            }
+        }
+    }
+}

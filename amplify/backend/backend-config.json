@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"triplyb289de00": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
