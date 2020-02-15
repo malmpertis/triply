@@ -30,9 +30,9 @@ const confirmSignUp = async (email, code) => {
 
 const signOut = async () => {
   try {
-    return;
+    await Auth.signOut();
   } catch (e) {
-    console.log(e);
+    throw new Error(e);
   }
 };
 

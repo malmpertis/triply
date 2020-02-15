@@ -8,7 +8,7 @@ const HomeScreen = () => {
 
   const handleSignOut = async () => {
     try {
-      await signOut;
+      await signOut();
       dispatch({ type: 'SIGN_OUT' });
     } catch (e) {
       console.log(e);
