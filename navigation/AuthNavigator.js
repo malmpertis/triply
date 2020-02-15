@@ -5,11 +5,19 @@ import SignUpScreen from '../screens/SignUpScreen';
 
 const Stack = createStackNavigator();
 
-const AuthNavgator = () => (
+const AuthNavigator = ({ isSignout }) => (
   <Stack.Navigator initialRouteName="SignIn">
-    <Stack.Screen name="SignIn" component={SignInScreen} />
+    <Stack.Screen
+      name="SignIn"
+      component={SignInScreen}
+      options={{
+        title: 'Sign in',
+        // When logging out, a pop animation feels intuitive
+        animationTypeForReplace: isSignout ? 'pop' : 'push'
+      }}
+    />
     <Stack.Screen name="SignUp" component={SignUpScreen} />
   </Stack.Navigator>
 );
 
-export default AuthNavgator;
+export default AuthNavigator;
