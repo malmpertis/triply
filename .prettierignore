@@ -1,5 +1,6 @@
-.next
+.expo
 node_modules/
 package-lock.json
 yarn.lock
 package.json
+aws-exports.js

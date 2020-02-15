@@ -24,7 +24,20 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "bundleIdentifier": "com.betriply",
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyCUbO5uLCNj83hHx2z0ArLmi10UsF87PgY"
+      }
+    },
+    "android": {
+      "package": "com.betriply.triply",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDogGMLHCQE40DSelyk8Y3xjA9uf3AFrlU"
+        }
+      }
+    },
+    "description": ""
   }
 }
