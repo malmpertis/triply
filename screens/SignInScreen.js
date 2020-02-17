@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, TouchableOpacity, Text } from 'react-native';
+import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { Card } from 'react-native-elements';
 import { signIn } from '../services/authService';
 import { useAuthDispatch } from '../contexts/authContext';
+import FormInput from '../components/FormInput/FormInput';
+import FormButton from '../components/FormButton/FormButton';
 
 const SignInScreen = ({ navigation }) => {
   const dispatch = useAuthDispatch();
@@ -21,44 +24,64 @@ const SignInScreen = ({ navigation }) => {
   };
 
   return (
-    <View>
-      <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={(value) => setEmail(value)}
-        keyboardType="email-address"
-        textContentType="emailAddress"
-        autoCapitalize="none"
-        autoCompleteType="email"
+    <View style={styles.container}>
+      <Image
+        style={{ width: '100%', position: 'absolute', top: 0 }}
+        source={require('../assets/images/topwave.png')}
       />
-      <TextInput
-        placeholder="Password"
-        value={password}
-        onChangeText={(value) => setPassword(value)}
-        secureTextEntry
-        keyboardType="default"
-        textContentType="password"
-        autoCapitalize="none"
-        autoCompleteType="password"
+      <View style={{ marginTop: 100 }}>
+        <Card>
+          <FormInput
+            placeholder="Email"
+            value={email}
+            onChangeText={(value) => setEmail(value)}
+            keyboardType="email-address"
+            textContentType="emailAddress"
+            autoCapitalize="none"
+            autoCompleteType="email"
+          />
+          <FormInput
+            placeholder="Password"
+            value={password}
+            onChangeText={(value) => setPassword(value)}
+            secureTextEntry
+            keyboardType="default"
+            textContentType="password"
+            autoCapitalize="none"
+            autoCompleteType="password"
+          />
+          <FormButton
+            loading={signInLoading}
+            disabled={signInLoading}
+            type="outline"
+            title="SIGN IN"
+            onPress={signInUser}
+          />
+          <TouchableOpacity
+            style={{
+              marginVertical: 18,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+            onPress={() => navigation.navigate('SignUp')}
+          >
+            <Text> - Or you can Sign Up - </Text>
+          </TouchableOpacity>
+        </Card>
+      </View>
+      <Image
+        style={{ width: '100%', position: 'absolute', bottom: 0 }}
+        source={require('../assets/images/bottomwaves.png')}
       />
-      <Button
-        loading={signInLoading}
-        disabled={signInLoading}
-        title="SIGN IN"
-        onPress={signInUser}
-      />
-      <TouchableOpacity
-        style={{
-          marginVertical: 18,
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-        onPress={() => navigation.navigate('SignUp')}
-      >
-        <Text> - Or you can Sign Up - </Text>
-      </TouchableOpacity>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff'
+  }
+});
 
 export default SignInScreen;

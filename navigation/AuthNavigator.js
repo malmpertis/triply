@@ -6,7 +6,7 @@ import SignUpScreen from '../screens/SignUpScreen';
 const Stack = createStackNavigator();
 
 const AuthNavigator = ({ isSignout }) => (
-  <Stack.Navigator initialRouteName="SignIn">
+  <Stack.Navigator initialRouteName="SignIn" headerMode="none">
     <Stack.Screen
       name="SignIn"
       component={SignInScreen}
