@@ -27,7 +27,7 @@ const checkAuth = async () =>
       return { attributes, jwtToken: signInUserSession.accessToken.jwtToken };
     })
     .catch((error) => {
-      throw error;
+      console.log(error);
     });
 
 export { signIn, signOut, checkAuth, signUp, confirmSignUp };
