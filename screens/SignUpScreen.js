@@ -7,6 +7,7 @@ import {
   Button,
   View
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { signIn, signUp, confirmSignUp } from '../services/authService';
 import { useAuthDispatch } from '../contexts/authContext';
 
@@ -49,64 +50,66 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
-      {!signed && (
-        <>
-          <TextInput
-            placeholder="Email"
-            value={email}
-            onChangeText={(value) => setEmail(value)}
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            autoCapitalize="none"
-            autoCompleteType="email"
-          />
-          <TextInput
-            placeholder="Password"
-            value={password}
-            onChangeText={(value) => setPassword(value)}
-            secureTextEntry
-            keyboardType="default"
-            textContentType="password"
-            autoCapitalize="none"
-            autoCompleteType="password"
-          />
-          <Button
-            loading={signUpLoading}
-            disabled={signUpLoading}
-            title="SIGN UP"
-            onPress={signUpUser}
-          />
-        </>
-      )}
-      {signed && (
-        <>
-          <TextInput
-            placeholder="Verification code"
-            value={code}
-            onChangeText={(value) => setCode(value)}
-            keyboardType="default"
-            autoCapitalize="none"
-          />
-          <Button
-            loading={verifyLoading}
-            disabled={verifyLoading}
-            title="Verify"
-            onPress={confirm}
-          />
-        </>
-      )}
-      <TouchableOpacity
-        style={{
-          marginVertical: 18,
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-        onPress={() => navigation.navigate('SignIn')}
-      >
-        <Text> - Or you can go back to Sign In - </Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        {!signed && (
+          <>
+            <TextInput
+              placeholder="Email"
+              value={email}
+              onChangeText={(value) => setEmail(value)}
+              keyboardType="email-address"
+              textContentType="emailAddress"
+              autoCapitalize="none"
+              autoCompleteType="email"
+            />
+            <TextInput
+              placeholder="Password"
+              value={password}
+              onChangeText={(value) => setPassword(value)}
+              secureTextEntry
+              keyboardType="default"
+              textContentType="password"
+              autoCapitalize="none"
+              autoCompleteType="password"
+            />
+            <Button
+              loading={signUpLoading}
+              disabled={signUpLoading}
+              title="SIGN UP"
+              onPress={signUpUser}
+            />
+          </>
+        )}
+        {signed && (
+          <>
+            <TextInput
+              placeholder="Verification code"
+              value={code}
+              onChangeText={(value) => setCode(value)}
+              keyboardType="default"
+              autoCapitalize="none"
+            />
+            <Button
+              loading={verifyLoading}
+              disabled={verifyLoading}
+              title="Verify"
+              onPress={confirm}
+            />
+          </>
+        )}
+        <TouchableOpacity
+          style={{
+            marginVertical: 18,
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+          onPress={() => navigation.navigate('SignIn')}
+        >
+          <Text> - Or you can go back to Sign In - </Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
