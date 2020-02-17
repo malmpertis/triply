@@ -16,14 +16,15 @@ export default function AppNavigator() {
 
   React.useEffect(() => {
     const bootstrapAsync = async () => {
-      let user;
+      let token = null;
       try {
-        user = await checkAuth();
-        console.log('user', user);
-        dispatch({ type: 'RESTORE_TOKEN', token: user });
+        const user = await checkAuth();
+        const { jwtToken } = user;
+        token = jwtToken;
       } catch (e) {
         console.log('error', e);
       }
+      dispatch({ type: 'RESTORE_TOKEN', token });
     };
 
     bootstrapAsync();

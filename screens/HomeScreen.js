@@ -25,7 +25,7 @@ const HomeScreen = () => {
 
       const location = await Location.getCurrentPositionAsync({});
       setLocationResult(JSON.stringify(location));
-      console.log(locationResult);
+      console.log('location: ', locationResult);
 
       // Center the map on the location we just fetched.
       setMapRegion({

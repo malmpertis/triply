@@ -22,7 +22,8 @@ const SignInScreen = ({ navigation }) => {
       })
       .catch((e) => {
         console.log(e);
-      });
+      })
+      .finally(() => setSignInLoading(false));
   };
 
   return (

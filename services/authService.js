@@ -21,13 +21,14 @@ const signOut = async () => {
 const checkAuth = async () =>
   Auth.currentAuthenticatedUser()
     .then((user) => {
+      console.log(user);
       const { attributes, signInUserSession } = user;
       // console.log(attributes);
       // console.log(signInUserSession.accessToken.jwtToken);
       return { attributes, jwtToken: signInUserSession.accessToken.jwtToken };
     })
     .catch((error) => {
-      console.log(error);
+      throw Error(error);
     });
 
 export { signIn, signOut, checkAuth, signUp, confirmSignUp };
