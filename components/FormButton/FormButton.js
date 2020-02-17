@@ -8,7 +8,7 @@ const FormButton = ({ style, ...props }) => (
 
 const styles = StyleSheet.create({
   formButton: {
-    marginHorizontal: 10,
+    marginHorizontal: 8,
     marginVertical: 16,
     padding: 8,
     height: 48,
