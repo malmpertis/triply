@@ -7,6 +7,7 @@ const FormInput = ({ style, ...props }) => (
     {...props}
     inputContainerStyle={{ ...styles.inputContainerStyle, ...style }}
     containerStyle={{ marginHorizontal: 0, paddingHorizontal: 0 }}
+    inputStyle={{ fontSize: 16 }}
   />
 );
 
@@ -14,12 +15,11 @@ export default FormInput;
 
 const styles = StyleSheet.create({
   inputContainerStyle: {
-    borderWidth: 1,
-    borderColor: '#D8D8D8',
+    borderBottomWidth: 1,
+    borderColor: '#C2C8CD',
     marginVertical: 8,
     marginHorizontal: 8,
     padding: 8,
-    height: 56,
-    borderRadius: 5
+    height: 48
   }
 });

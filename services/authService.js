@@ -1,39 +1,21 @@
 import { Auth } from 'aws-amplify';
 
 const signIn = async (email, password) => {
-  try {
-    await Auth.signIn(email, password);
-  } catch (e) {
-    console.log(e);
-  }
+  await Auth.signIn(email, password);
 };
 
 const signUp = async (username, password) => {
-  try {
-    await Auth.signUp({ username, password });
-    return;
-  } catch (e) {
-    console.log(e);
-  }
+  await Auth.signUp({ username, password });
 };
 
 const confirmSignUp = async (email, code) => {
-  try {
-    await Auth.confirmSignUp(email, code, {
-      forceAliasCreation: true
-    });
-    return;
-  } catch (e) {
-    console.log(e);
-  }
+  await Auth.confirmSignUp(email, code, {
+    forceAliasCreation: true
+  });
 };
 
 const signOut = async () => {
-  try {
-    await Auth.signOut();
-  } catch (e) {
-    throw new Error(e);
-  }
+  await Auth.signOut();
 };
 
 const checkAuth = async () =>
@@ -45,8 +27,7 @@ const checkAuth = async () =>
       return { attributes, jwtToken: signInUserSession.accessToken.jwtToken };
     })
     .catch((error) => {
-      console.log(error);
-      return null;
+      throw error;
     });
 
 export { signIn, signOut, checkAuth, signUp, confirmSignUp };
