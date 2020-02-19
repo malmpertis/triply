@@ -7,9 +7,12 @@ import {
   Button,
   View
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { signIn, signUp, confirmSignUp } from '../services/authService';
+import AuthLayout from '../layouts/AuthLayout';
 import { useAuthDispatch } from '../contexts/authContext';
+import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton';
+import GenericTitle from '../components/GenericTitle';
 
 const SignUpScreen = ({ navigation }) => {
   const dispatch = useAuthDispatch();
@@ -50,11 +53,21 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView>
-      <View style={styles.container}>
+    <AuthLayout>
+      <View>
+        <View
+          style={{
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            marginVertical: 8,
+            marginHorizontal: 16
+          }}
+        >
+          <GenericTitle text="Sign up!" />
+        </View>
         {!signed && (
           <>
-            <TextInput
+            <FormInput
               placeholder="Email"
               value={email}
               onChangeText={(value) => setEmail(value)}
@@ -63,7 +76,7 @@ const SignUpScreen = ({ navigation }) => {
               autoCapitalize="none"
               autoCompleteType="email"
             />
-            <TextInput
+            <FormInput
               placeholder="Password"
               value={password}
               onChangeText={(value) => setPassword(value)}
@@ -73,9 +86,10 @@ const SignUpScreen = ({ navigation }) => {
               autoCapitalize="none"
               autoCompleteType="password"
             />
-            <Button
+            <FormButton
               loading={signUpLoading}
               disabled={signUpLoading}
+              type="outline"
               title="SIGN UP"
               onPress={signUpUser}
             />
@@ -83,33 +97,40 @@ const SignUpScreen = ({ navigation }) => {
         )}
         {signed && (
           <>
-            <TextInput
+            <FormInput
               placeholder="Verification code"
               value={code}
               onChangeText={(value) => setCode(value)}
               keyboardType="default"
               autoCapitalize="none"
             />
-            <Button
+            <FormButton
               loading={verifyLoading}
               disabled={verifyLoading}
+              type="outline"
               title="Verify"
               onPress={confirm}
             />
           </>
         )}
-        <TouchableOpacity
+        <View
           style={{
+            flexDirection: 'row',
             marginVertical: 18,
             justifyContent: 'center',
             alignItems: 'center'
           }}
-          onPress={() => navigation.navigate('SignIn')}
         >
-          <Text> - Or you can go back to Sign In - </Text>
-        </TouchableOpacity>
+          <Text style={{ color: '#CDD2D6' }}>Already a member?</Text>
+          <TouchableOpacity
+            style={{ marginLeft: 4 }}
+            onPress={() => navigation.navigate('SignIn')}
+          >
+            <Text>Sign in!</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </SafeAreaView>
+    </AuthLayout>
   );
 };
 

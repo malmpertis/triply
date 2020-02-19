@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 
-const FormButton = ({ style, ...props }) => (
-  <Button buttonStyle={{ ...styles.formButton, ...style }} {...props} />
-);
+const FormButton = ({ style, theme, ...props }) => {
+  console.log(theme);
+  return <Button buttonStyle={{ ...styles.formButton, ...style }} {...props} />;
+};
 
 const styles = StyleSheet.create({
   formButton: {
