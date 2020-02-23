@@ -1,5 +1,8 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators
+} from '@react-navigation/stack';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 
@@ -16,7 +19,13 @@ const AuthNavigator = ({ isSignout }) => (
         animationTypeForReplace: isSignout ? 'pop' : 'push'
       }}
     />
-    <Stack.Screen name="SignUp" component={SignUpScreen} />
+    <Stack.Screen
+      name="SignUp"
+      component={SignUpScreen}
+      options={{
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+      }}
+    />
   </Stack.Navigator>
 );
 

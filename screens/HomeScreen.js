@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, Button, StyleSheet, Dimensions } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -48,7 +48,7 @@ const HomeScreen = () => {
   };
 
   return (
-    <View styles={styles.container}>
+    <View style={styles.container}>
       <MapView
         ref={mapRef}
         provider={PROVIDER_GOOGLE}
@@ -62,7 +62,7 @@ const HomeScreen = () => {
         showsUserLocation
         followsUserLocation
       />
-      <View style={{ position: 'absolute', margin: 32 }}>
+      <View style={{ position: 'absolute', bottom: 100, left: 50 }}>
         <Button title="Log Out" onPress={handleSignOut} />
       </View>
     </View>
@@ -71,12 +71,10 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    ...StyleSheet.absoluteFill
+    ...StyleSheet.absoluteFillObject
   },
   map: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    ...StyleSheet.absoluteFill
+    ...StyleSheet.absoluteFillObject
   }
 });
 
