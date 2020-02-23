@@ -1,0 +1,7 @@
+type Trip @model {
+  id: ID!
+  name: String!
+  description: String
+  from: String!
+  to: String!
+}
