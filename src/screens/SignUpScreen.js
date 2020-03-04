@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  Button,
-  View
-} from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { signIn, signUp, confirmSignUp } from '../services/authService';
 import AuthLayout from '../layouts/AuthLayout';
 import { useAuthDispatch } from '../contexts/authContext';
@@ -133,11 +126,5 @@ const SignUpScreen = ({ navigation }) => {
     </AuthLayout>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: '100%'
-  }
-});
 
 export default SignUpScreen;

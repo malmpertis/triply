@@ -8,7 +8,7 @@ const AuthLayout = ({ children }) => (
     <Image
       resizeMode="stretch"
       style={{ position: 'absolute', width: '100%', top: 0 }}
-      source={require('../assets/images/topwave.png')}
+      source={require('../../assets/images/topwave.png')}
     />
     <SafeAreaView>
       <View style={{ marginTop: 80 }}>
@@ -34,7 +34,7 @@ const AuthLayout = ({ children }) => (
     <Image
       resizeMode="stretch"
       style={{ position: 'absolute', width: '100%', bottom: 0 }}
-      source={require('../assets/images/bottomwaves.png')}
+      source={require('../../assets/images/bottomwaves.png')}
     />
   </View>
 );

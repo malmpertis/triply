@@ -4,9 +4,9 @@ import { Formik } from 'formik';
 import { signIn } from '../services/authService';
 import { useAuthDispatch } from '../contexts/authContext';
 import AuthLayout from '../layouts/AuthLayout';
-import FormInput from '../components/FormInput/FormInput';
-import FormButton from '../components/FormButton/FormButton';
-import GenericTitle from '../components/GenericTitle/index';
+import FormInput from '../components/FormInput';
+import FormButton from '../components/FormButton';
+import GenericTitle from '../components/GenericTitle';
 
 const SignInScreen = ({ navigation }) => {
   const dispatch = useAuthDispatch();
