@@ -53,10 +53,10 @@ const HomeScreen = () => {
         ref={mapRef}
         provider={PROVIDER_GOOGLE}
         showsCompass={false}
+        showsMyLocationButton={false}
         style={styles.map}
         customMapStyle={mapStyles}
         initialRegion={mapRegion}
-        showsMyLocationButton
         showsPointsOfInterest
         showsBuildings
         showsUserLocation

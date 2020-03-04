@@ -2,35 +2,38 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateTrip = /* GraphQL */ `
-  subscription OnCreateTrip {
-    onCreateTrip {
+  subscription OnCreateTrip($owner: String!) {
+    onCreateTrip(owner: $owner) {
       id
       name
       description
       from
       to
+      owner
     }
   }
 `;
 export const onUpdateTrip = /* GraphQL */ `
-  subscription OnUpdateTrip {
-    onUpdateTrip {
+  subscription OnUpdateTrip($owner: String!) {
+    onUpdateTrip(owner: $owner) {
       id
       name
       description
       from
       to
+      owner
     }
   }
 `;
 export const onDeleteTrip = /* GraphQL */ `
-  subscription OnDeleteTrip {
-    onDeleteTrip {
+  subscription OnDeleteTrip($owner: String!) {
+    onDeleteTrip(owner: $owner) {
       id
       name
       description
       from
       to
+      owner
     }
   }
 `;

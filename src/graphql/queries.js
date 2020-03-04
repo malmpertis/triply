@@ -9,6 +9,7 @@ export const getTrip = /* GraphQL */ `
       description
       from
       to
+      owner
     }
   }
 `;
@@ -25,6 +26,7 @@ export const listTrips = /* GraphQL */ `
         description
         from
         to
+        owner
       }
       nextToken
     }

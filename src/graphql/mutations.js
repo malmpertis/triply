@@ -12,6 +12,7 @@ export const createTrip = /* GraphQL */ `
       description
       from
       to
+      owner
     }
   }
 `;
@@ -26,6 +27,7 @@ export const updateTrip = /* GraphQL */ `
       description
       from
       to
+      owner
     }
   }
 `;
@@ -40,6 +42,7 @@ export const deleteTrip = /* GraphQL */ `
       description
       from
       to
+      owner
     }
   }
 `;
