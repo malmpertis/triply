@@ -17,8 +17,10 @@ const SignInScreen = ({ navigation }) => {
     setSignInLoading(true);
     signIn(email, password)
       .then((r) => {
-        console.log(r);
-        dispatch({ type: 'SIGN_IN', token: '123' });
+        dispatch({
+          type: 'SIGN_IN',
+          token: r.signInUserSession.accessToken.jwtToken
+        });
       })
       .catch((e) => {
         console.log(e);
