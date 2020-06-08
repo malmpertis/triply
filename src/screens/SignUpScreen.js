@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { signIn, signUp, confirmSignUp } from '../services/authService';
 import AuthLayout from '../layouts/AuthLayout';
@@ -9,12 +9,17 @@ import GenericTitle from '../components/GenericTitle';
 
 const SignUpScreen = ({ navigation }) => {
   const dispatch = useAuthDispatch();
+  const [editable, setEditable] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signed, setSigned] = useState(false);
   const [signUpLoading, setSignUpLoading] = useState(false);
   const [verifyLoading, setVerifyLoading] = useState(false);
   const [code, setCode] = useState('');
+
+  useEffect(() => {
+    setTimeout(() => setEditable(true), 100);
+  }, []);
 
   const signUpUser = () => {
     setSignUpLoading(true);
@@ -68,6 +73,7 @@ const SignUpScreen = ({ navigation }) => {
               textContentType="emailAddress"
               autoCapitalize="none"
               autoCompleteType="email"
+              editable={editable}
             />
             <FormInput
               placeholder="Password"

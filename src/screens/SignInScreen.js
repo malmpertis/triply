@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
 import { Formik } from 'formik';
 import { signIn } from '../services/authService';
@@ -11,6 +11,12 @@ import GenericTitle from '../components/GenericTitle';
 const SignInScreen = ({ navigation }) => {
   const dispatch = useAuthDispatch();
   const [signInLoading, setSignInLoading] = useState(false);
+  const [editable, setEditable] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => setEditable(true), 100);
+  }, []);
 
   const signInUser = async (values) => {
     const { email, password } = values;
@@ -24,6 +30,7 @@ const SignInScreen = ({ navigation }) => {
       })
       .catch((e) => {
         console.log(e);
+        setError(e.message);
       })
       .finally(() => setSignInLoading(false));
   };
@@ -55,6 +62,7 @@ const SignInScreen = ({ navigation }) => {
               textContentType="emailAddress"
               autoCapitalize="none"
               autoCompleteType="email"
+              editable={editable}
             />
             <FormInput
               placeholder="Password"
@@ -77,6 +85,11 @@ const SignInScreen = ({ navigation }) => {
           </>
         )}
       </Formik>
+      {error && (
+        <View>
+          <Text style={{ color: 'red', textAlign: 'center' }}>{error}</Text>
+        </View>
+      )}
       <View
         style={{
           flexDirection: 'row',

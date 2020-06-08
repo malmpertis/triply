@@ -36,7 +36,8 @@ const HomeScreen = () => {
       });
     };
     getLocationAsync();
-  }, [locationResult]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSignOut = async () => {
     try {

@@ -1,42 +1,15 @@
 import { Auth } from 'aws-amplify';
 
-const signIn = async (email, password) => {
-  try {
-    const response = await Auth.signIn(email, password);
-    return response;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
+const signIn = (email, password) => Auth.signIn(email, password);
 
-const signUp = async (username, password) => {
-  try {
-    const response = await Auth.signUp({ username, password });
-    return response;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
+const signUp = (username, password) => Auth.signUp({ username, password });
 
-const confirmSignUp = async (email, code) => {
-  try {
-    const response = await Auth.confirmSignUp(email, code, {
-      forceAliasCreation: true
-    });
-    return response;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
+const confirmSignUp = (email, code) =>
+  Auth.confirmSignUp(email, code, {
+    forceAliasCreation: true
+  });
 
-const signOut = async () => {
-  try {
-    const response = await Auth.signOut();
-    return response;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
+const signOut = () => Auth.signOut();
 
 const checkAuth = async () => {
   try {
